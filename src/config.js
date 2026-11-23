@@ -16,10 +16,9 @@ export const config = {
   siteName: "Fricco Collection",
   port: num(env.PORT, 3000),
   dataDir: path.resolve(
-    env.DATA_DIR ||
-      (env.VERCEL
-        ? path.join(os.tmpdir(), "fricco-collection")
-        : path.join(root, "data")),
+    env.VERCEL
+      ? path.join(os.tmpdir(), "fricco-collection")
+      : env.DATA_DIR || path.join(root, "data"),
   ),
   publicDir: path.join(root, "public"),
 
